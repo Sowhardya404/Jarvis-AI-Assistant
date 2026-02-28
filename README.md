@@ -142,9 +142,11 @@ pip install -r requirements.txt
 
 ## Author
 
+```text
 Sowhardya Biswas
 B.Tech Computer Science Engineering
 AI • Data Analytics • Software Engineering.
+```
 
 ## License
 
