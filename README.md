@@ -1,77 +1,147 @@
-# Jarvis – AI Desktop Assistant
+# JARVIS — Desktop AI Voice Assistant
 
-Jarvis is a voice-controlled, AI-powered desktop personal assistant built with Python. It can perform a variety of tasks such as answering questions, fetching news and weather, controlling music playback, and managing system-level operations like shutdown, restart, and lock.
+JARVIS is a modular AI-powered desktop voice assistant built using Python.
+It listens to voice commands, understands user intent, executes system tasks, and falls back to generative AI when needed.
 
-## Features
+ JARVIS demonstrates:
 
-- **Voice Commands**: Wake word detection ("Jarvis") for hands-free operation.
-- **System Control**: Shutdown, restart, lock screen, volume, and brightness control.
-- **Web Shortcuts**: Quickly open Google, YouTube, and WhatsApp in your browser.
-- **Weather Updates**: Get live weather information for any city using the OpenWeather API.
-- **News Headlines**: Fetch the latest news headlines via NewsAPI.
-- **Music Playback**: Play, pause, resume, and stop music using Spotify integration.
-- **AI Q&A**: Ask questions and get intelligent answers using Perplexity/OpenAI.
+- AI integration
+- Voice interaction
+- Command routing architecture
+- Memory persistence
+- System automation
 
-## Setup
+## Key Features
 
-1. **Clone the repository** and navigate to the project directory.
+### Voice Interaction
 
-2. **Install dependencies**:
-    ```sh
-    pip install -r requirements.txt
-    ```
+- Wake word activation ("Jarvis")
+- Real-time speech recognition
+- Natural conversational responses
+- Hands-free desktop interaction
 
-3. **Set up environment variables**:  
-   Create a `.env` file in the `JARVIS` directory with the following keys (see [.env](.env)):
-    ```
-    NEWSAPI_KEY=your_newsapi_key
-    OPENROUTER_API_KEY=your_openrouter_api_key
-    PERPLEXITY_API_KEY=your_perplexity_api_key
-    SPOTIFY_CLIENT_ID=your_spotify_client_id
-    SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-    SPOTIFY_REDIRECT_URI=your_spotify_redirect_uri
-    OPENWEATHER_API_KEY=your_openweather_api_key
-    ```
+### Intelligent AI Assistant
 
-4. **Run Jarvis**:
-    ```sh
-    python jarvis_Main.py
-    ```
+- Generative AI powered conversation engine
+- Context-aware responses
+- AI fallback when commands are unknown
 
-## Usage
+### Desktop Automation
 
-- Say "Jarvis" (or a wake phrase) to activate the assistant.
-- Give commands such as:
-    - "What is the weather in London?"
-    - "Play [song name]"
-    - "Open Google"
-    - "Increase volume"
-    - "Tell me the news"
-    - "Shutdown the system"
+- Open applications and websites
+- Volume and brightness control
+- File & folder access
+- System shutdown and control operations
+
+### Smart Information Services
+
+- Real-time weather updates via API integration
+- News Updates via API intergration
+- Online information retrieval
+- Fast web navigation
+
+### Music Control
+
+- Voice-based music playback
+- Smart command handling
+- Session memory for previous actions
+
+### Persistent Memory System
+
+Stores user preferences including:
+
+- User name
+- Default city
+- Last command history
+
+## Tech Stack
+
+### Programming Language
+
+Python
+
+### AI & NLP
+
+- Google Gemini API (Generative AI)
+- SpeechRecognition
+- Natural Language Intent Classification
+
+### Automation
+
+- Volume Control Automation
+- Screen Brightness Management
+- Application Launch Automation (Notepad, Calculator)
+- File & Folder Navigation via Voice Commands
+
+### API Integrations
+
+- OpenWeather API — Real-time weather data retrieval
+- YouTube Music API (YTMusic) — Voice-controlled music playback
+- NewsAPI — Live news headline aggregation and updates
+
+### Software Engineering
+
+- Object-Oriented Programming
+- Modular Design
+
+## Architecture
+
+User Voice
+   ↓
+Speech Recognition
+   ↓
+Intent Classifier
+   ↓
+Command Router
+   ↓
+Specific Command Module
+   ↓
+AI Fallback (Gemini)
+   ↓
+Text To Speech Response
+
+Main execution loop located in main.py
 
 ## Project Structure
 
-- [`jarvis_Main.py`](jarvis_Main.py): Main entry point and command processor.
-- [`jarvis_controls.py`](jarvis_controls.py): System controls (volume, brightness, open apps).
-- [`musiclibrary.py`](musiclibrary.py): Spotify music playback integration.
-- [`weather.py`](weather.py): Weather fetching logic.
-- `.env`: API keys and configuration (not tracked by git).
+JARVIS/
+│
+├── main.py                # Entry point
+│
+├── Engine/
+│   ├── speech.py          # Voice input listener
+│   ├── tts.py             # Text-to-speech output
+│   └── brain.py           # Gemini AI integration
+│
+├── core/
+│   ├── intent_classifier.py
+│   ├── command_router.py
+│   └── memory.py
+│
+├── commands/
+│   ├── datetime_command.py
+│   ├── music_command.py
+│   ├── weather_command.py
+│   └── system_command.py
+│
+└── Tools/
+    ├── jarvis_controls.py
+    ├── weather.py
+    ├── musiclibrary.py
+    └── datetime_utils.py
 
-## Requirements
+## Install Dependencies
 
-- Python 3.8+
-- Microphone for voice input
-- Internet connection for APIs
+```bash
+pip install -r requirements.txt
+```
 
-## APIs Used
+## Author
 
-- [OpenWeather](https://openweathermap.org/)
-- [NewsAPI](https://newsapi.org/)
-- [Spotify Web API](https://developer.spotify.com/)
-- [Perplexity/OpenAI](https://www.perplexity.ai/)
+Sowhardya Biswas
+B.Tech Computer Science Engineering
+AI • Data Analytics • Software Engineering.
 
 ## License
 
 This project is for educational purposes.
-
----
