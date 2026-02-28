@@ -86,6 +86,7 @@ Python
 
 ## Architecture
 
+```text
 User Voice
    ↓
 Speech Recognition
@@ -101,9 +102,11 @@ AI Fallback (Gemini)
 Text To Speech Response
 
 Main execution loop located in main.py
+```
 
 ## Project Structure
 
+```text
 JARVIS/
 │
 ├── main.py                # Entry point
@@ -129,6 +132,7 @@ JARVIS/
     ├── weather.py
     ├── musiclibrary.py
     └── datetime_utils.py
+```
 
 ## Install Dependencies
 
