@@ -20,6 +20,9 @@ class IntentClassifier:
 
         elif "reset memory" in text:
             return "reset_memory"
+        
+        elif "news" in text or "headlines" in text:
+            return "news"
 
         else:
             return "ai_fallback"

@@ -8,6 +8,8 @@ from Engine.brain import get_ai_response
 
 from core.intent_classifier import IntentClassifier
 from core.command_router import CommandRouter
+from core.memory import Memory
+memory = Memory()
 
 classifier = IntentClassifier()
 router = CommandRouter()
@@ -47,14 +49,19 @@ def main():
             continue
 
         if "jarvis" in text:
-            speak("I am listening.")
+            name = memory.get("user_name")
+
+            if name:
+                speak(f"I am listening, {name}.")
+            else:
+                speak("I am listening.")
 
             while True:
-                command = listen(timeout=6)
+                command = listen(timeout=5)
                 if not command:
                     continue
 
-                if any(word in command for word in ["stop", "sleep", "exit", "quit"]):
+                if any(word in command for word in ["sleep", "quit"]):
                     speak("Going to sleep.")
                     break
 

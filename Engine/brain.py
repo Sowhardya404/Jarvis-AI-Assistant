@@ -27,7 +27,8 @@ def get_ai_response(prompt):
             contents=full_prompt
         )
 
-        reply = response.text.strip()
+        raw_text = response.text
+        reply = raw_text.strip() if isinstance(raw_text, str) else "I couldn't generate a response."
         conversation_history.append(f"Jarvis: {reply}")
 
         return reply

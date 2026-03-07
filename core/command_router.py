@@ -2,6 +2,7 @@ from commands.weather_command import WeatherCommand
 from commands.music_command import MusicCommand
 from commands.datetime_command import DateTimeCommand
 from commands.system_command import SystemCommand
+from commands.news_command import NewsCommand
 from core.memory import Memory
 
 class CommandRouter:
@@ -11,7 +12,8 @@ class CommandRouter:
             "weather": WeatherCommand(),
             "music": MusicCommand(),
             "datetime": DateTimeCommand(),
-            "system": SystemCommand()
+            "system": SystemCommand(),
+            "news": NewsCommand()
         }
         self.memory = Memory()
 
