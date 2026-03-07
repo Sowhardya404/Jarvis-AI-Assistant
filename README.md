@@ -31,7 +31,6 @@ It listens to voice commands, understands user intent, executes system tasks, an
 - Open applications and websites
 - Volume and brightness control
 - File & folder access
-- System shutdown and control operations
 
 ### Smart Information Services
 
