@@ -14,6 +14,10 @@ def get_ai_response(prompt):
     global conversation_history
 
     conversation_history.append(f"User: {prompt}")
+    
+     # Keep only the last 20 exchanges — prevents memory leak
+    if len(conversation_history) > 20:
+        conversation_history = conversation_history[-20:]
 
     try:
         full_prompt = (

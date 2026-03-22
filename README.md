@@ -1,152 +1,126 @@
-# JARVIS — Desktop AI Voice Assistant
+# Jarvis AI Assistant 🤖
 
-JARVIS is a modular AI-powered desktop voice assistant built using Python.
-It listens to voice commands, understands user intent, executes system tasks, and falls back to generative AI when needed.
+A voice-activated AI assistant built with Python, powered by Google Gemini.
+Responds to voice commands for weather, music, news, system controls, and general conversation.
 
- JARVIS demonstrates:
+---
 
-- AI integration
-- Voice interaction
-- Command routing architecture
-- Memory persistence
-- System automation
+## Features
 
-## Key Features
+- Voice activation — say "Jarvis" to wake it up
+- Real-time weather via OpenWeatherMap
+- Music playback via YouTube Music
+- Top news headlines via NewsAPI
+- System controls — volume, brightness, open apps and websites
+- Date and time queries
+- General AI conversation powered by Google Gemini 2.5 Flash
+- Persistent memory — remembers your name, city, and last song
+- Smart listening — stops recording when you stop speaking
 
-### Voice Interaction
-
-- Wake word activation ("Jarvis")
-- Real-time speech recognition
-- Natural conversational responses
-- Hands-free desktop interaction
-
-### Intelligent AI Assistant
-
-- Generative AI powered conversation engine
-- Context-aware responses
-- AI fallback when commands are unknown
-
-### Desktop Automation
-
-- Open applications and websites
-- Volume and brightness control
-- File & folder access
-
-### Smart Information Services
-
-- Real-time weather updates via API integration
-- News Updates via API intergration
-- Online information retrieval
-- Fast web navigation
-
-### Music Control
-
-- Voice-based music playback
-- Smart command handling
-- Session memory for previous actions
-
-### Persistent Memory System
-
-Stores user preferences including:
-
-- User name
-- Default city
-- Last command history
-
-## Tech Stack
-
-### Programming Language
-
-Python
-
-### AI & NLP
-
-- Google Gemini API (Generative AI)
-- SpeechRecognition
-- Natural Language Intent Classification
-
-### Automation
-
-- Volume Control Automation
-- Screen Brightness Management
-- Application Launch Automation (Notepad, Calculator)
-- File & Folder Navigation via Voice Commands
-
-### API Integrations
-
-- OpenWeather API — Real-time weather data retrieval
-- YouTube Music API (YTMusic) — Voice-controlled music playback
-- NewsAPI — Live news headline aggregation and updates
-
-### Software Engineering
-
-- Object-Oriented Programming
-- Modular Design
-
-## Architecture
-
-```text
-User Voice
-   ↓
-Speech Recognition
-   ↓
-Intent Classifier
-   ↓
-Command Router
-   ↓
-Specific Command Module
-   ↓
-AI Fallback (Gemini)
-   ↓
-Text To Speech Response
-
-Main execution loop located in main.py
-```
+---
 
 ## Project Structure
 
-```text
-JARVIS/
-│
-├── main.py                # Entry point
-│
+```
+Jarvis-AI-Assistant/
 ├── Engine/
-│   ├── speech.py          # Voice input listener
+│   ├── speech.py          # Microphone input with voice activity detection
 │   ├── tts.py             # Text-to-speech output
 │   └── brain.py           # Gemini AI integration
-│
 ├── core/
-│   ├── intent_classifier.py
-│   ├── command_router.py
-│   └── memory.py
-│
+│   ├── intent_classifier.py   # Classifies user intent from text
+│   ├── command_router.py      # Routes intent to correct command
+│   └── memory.py              # Persistent JSON-based memory
 ├── commands/
-│   ├── datetime_command.py
-│   ├── music_command.py
 │   ├── weather_command.py
-│   └── system_command.py
-│
-└── Tools/
-    ├── jarvis_controls.py
-    ├── weather.py
-    ├── musiclibrary.py
-    └── datetime_utils.py
+│   ├── music_command.py
+│   ├── datetime_command.py
+│   ├── system_command.py
+│   └── news_command.py
+├── Tools/
+│   ├── weather.py
+│   ├── musiclibrary.py
+│   ├── news.py
+│   ├── jarvis_controls.py
+│   └── datetime_utils.py
+├── tests/
+│   ├── test_intent_classifier.py
+│   ├── test_memory.py
+│   └── test_datetime_command.py
+├── main.py
+├── requirements.txt
+└── .env
 ```
 
-## Install Dependencies
+---
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Sowhardya404/Jarvis-AI-Assistant.git
+cd Jarvis-AI-Assistant
+```
+
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Author
+### 3. Create a `.env` file in the project root
 
-```text
-Sowhardya Biswas
-B.Tech Computer Science Engineering
-AI • Data Analytics • Software Engineering.
+```
+GEMINI_API_KEY=your_gemini_api_key
+OPENWEATHER_API_KEY=your_openweather_api_key
+NEWSAPI_KEY=your_newsapi_key
 ```
 
-## License
+### 4. Run Jarvis
 
-This project is for educational purposes.
+```bash
+python main.py
+```
+
+---
+
+## Usage
+
+| You say | Jarvis does |
+|---|---|
+| "Jarvis" | Wakes up and listens |
+| "What's the weather in Kolkata" | Fetches live weather |
+| "Play Blinding Lights" | Opens song on YouTube Music |
+| "What's the time" | Tells current time |
+| "Volume up" | Increases system volume |
+| "Open YouTube" | Opens YouTube in browser |
+| "What's in the news" | Reads top 5 headlines |
+| "My name is Aryan" | Remembers your name |
+| "Tell me a joke" | Responds via Gemini AI |
+| "Sleep" | Goes back to standby |
+| "Shutdown" | Exits the program |
+
+---
+
+## Running Tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+---
+
+## Tech Stack
+
+- Python 3.14
+- Google Gemini 2.5 Flash — AI responses
+- SpeechRecognition + SoundDevice — voice input
+- pyttsx4 — text to speech
+- OpenWeatherMap API — weather
+- YTMusicAPI — music
+- NewsAPI — headlines
+- screen-brightness-control — display control
+- NirCmd — volume control
+
+---
